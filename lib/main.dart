@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:bmicalc/SecondPage.dart';
+import '';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+        //'/second': (context) => SecondPage(bmi: {required: bmi}),
+      },
     );
   }
 }
 
+//Navigator.pushNamed(context,'/second');
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -100,6 +107,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 50.0,
                     child: ElevatedButton(
                       onPressed: () {
+                        //Navigator.pushNamed(context,'/second');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SecondPage(
+                                      bmi: bmi,
+                                    )));
                         setState(() {
                           bmi = weight / ((height / 100) * (height / 100));
                         });
