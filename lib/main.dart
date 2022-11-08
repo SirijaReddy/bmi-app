@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(""),
                   Text(""),
                   Text(
-                    "BMI ${bmi.toStringAsFixed(2)} ",
+                    "BMI = ${bmi.toStringAsFixed(2)} ",
                     style: TextStyle(fontSize: 20),
                   )
                 ])),
